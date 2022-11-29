@@ -1,5 +1,4 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { execute } = require('./madlibs');
 
 module.exports = {
     data: 
@@ -32,6 +31,6 @@ module.exports = {
             );
         },
         async execute(interaction){
-            
+            await interaction.reply("Placeholder interaction for 'guide'")
         },
 };
