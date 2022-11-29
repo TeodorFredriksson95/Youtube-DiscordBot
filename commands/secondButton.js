@@ -30,6 +30,20 @@ module.exports = {
                         .setURL('https://www.youtube.com/watch?v=oB7hgvqALMM&ab_channel=Xplainingcapoeira'),
                 );
 
-                await interaction.reply({ epheremal: true, content: 'Click buttons to get colors', components: [row]})
+                const secondRow = new ActionRowBuilder()
+                    .addComponents(
+                        new ButtonBuilder()
+                            .setCustomId('testingrowtwo')
+                            .setLabel('Testing second row of buttons')
+                            .setStyle('Primary'),
+
+                        new ButtonBuilder()
+                            .setCustomId('testingEmojis')
+                            .setLabel('fucking emoji')
+                            .setStyle('Danger')
+                            .setEmoji('😒')
+                    )
+
+                await interaction.reply({ epheremal: true, content: 'Click buttons to get colors', components: [row, secondRow]})
         }
 }
