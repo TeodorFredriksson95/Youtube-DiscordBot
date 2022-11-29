@@ -14,7 +14,7 @@ module.exports = {
                     const row = new ActionRowBuilder()
                             .addComponents(
                                 new ButtonBuilder()
-                                    .setCustomId('primary')
+                                    .setCustomId('firstbutton')
                                     .setLabel('Click me ffs!')
                                     .setStyle(ButtonStyle.Primary)
                             );
