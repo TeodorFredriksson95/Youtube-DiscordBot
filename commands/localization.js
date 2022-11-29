@@ -25,4 +25,8 @@ module.exports = {data: new SlashCommandBuilder()
 				de: 'Hunderasse',
 			}),
 	
-	)};
+	),
+	async execute(interaction) {
+		await interaction.reply("Placeholder execute func for localization.js")
+	}
+};
