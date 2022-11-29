@@ -1,5 +1,7 @@
 const fs = require('node:fs')
 const path = require('node:path')
+const wait = require('node:timers/promises').setTimeout;
+
 
 // Require the nessescary discord.js classes
 const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
@@ -37,29 +39,30 @@ for (const file of commandFiles){
     }
 }
 
+client.on(Events.InteractionCreate, interaction => {
+	if (!interaction.isButton()) return;
 
-// client.once(Events.ClientReady, c => {
-// 	console.log(`Ready! Logged in as ${c.user.tag}`);
-// });
+    console.log(interaction.user.id)
+    console.log(interaction.customId)
+    
+    console.log('-'.repeat(50))
 
-// client.on(Events.InteractionCreate, async interaction => {
-// 	if (!interaction.isChatInputCommand()) return;
+const filter = i => i.customId === 'primary' && i.user.id === '228579613159325696';
+console.log(filter)
 
-// 	const command = interaction.client.commands.get(interaction.commandName);
+const collector = interaction.channel.createMessageComponentCollector({ filter, time: 5000 });
 
-// 	if (!command) {
-// 		console.error(`No command matching ${interaction.commandName} was found.`);
-// 		return;
-// 	}
+collector.on('collect', async i => {
+	if (i.customId === 'primary') {S
+		await i.deferUpdate();
+		await wait(4000);
+		await i.editReply({ content: 'A button was clicked!', components: [] });
+	}
+});
 
-// 	try {
-// 		await command.execute(interaction);
-// 	} catch (error) {
-// 		console.error(`Error executing ${interaction.commandName}`);
-// 		console.error(error);
-// 	}
-// });
+collector.on('end', collected => console.log(`Collected ${collected.size} items`));
 
+});
 
 // Log in to Discord with your client's token
 client.login(token)
