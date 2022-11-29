@@ -1,6 +1,4 @@
 const { SlashCommandBuilder } = require("discord.js");
-const madlibs = require("../events/madlibs");
-
 
 module.exports = {
     data: 
