@@ -1,5 +1,7 @@
 const fs = require('node:fs')
 const path = require('node:path')
+const wait = require('node:timers/promises').setTimeout;
+
 
 // Require the nessescary discord.js classes
 const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
