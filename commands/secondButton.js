@@ -39,7 +39,7 @@ module.exports = {
 
                         new ButtonBuilder()
                             .setCustomId('testingEmojis')
-                            .setLabel('fucking emoji')
+                            .setLabel('emoji')
                             .setStyle('Danger')
                             .setEmoji('😒')
                     )
