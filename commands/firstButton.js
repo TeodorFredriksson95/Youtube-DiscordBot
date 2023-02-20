@@ -14,16 +14,16 @@ module.exports = {
                     const row = new ActionRowBuilder()
                             .addComponents(
                                 new ButtonBuilder()
-                                    .setCustomId('primary')
-                                    .setLabel('Click me ffs!')
+                                    .setCustomId('firstbutton')
+                                    .setLabel('Click me!')
                                     .setStyle(ButtonStyle.Primary)
                             );
 
                     const embed = new EmbedBuilder()
                                 .setColor(0x0099FF)
-                                .setTitle('A Huge Ass Title')
+                                .setTitle('A Huge Title')
                                 .setURL('https://youtube.com')
-                                .setDescription('A motherfucking cool description');
+                                .setDescription('A cool description');
                                                                         
                         await interaction.reply({ content: 'I think you should', embeds:[embed], components: [row]})
 
